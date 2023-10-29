@@ -1,0 +1,74 @@
+def E(key):    
+    fin = open(path, 'rb')
+    image = fin.read()
+    fin.close()
+    image = bytearray(image)
+     
+    
+    for index, values in enumerate(image):
+        image[index] = values ^ key
+            
+    fin = open(path, 'wb')
+    fin.write(image)
+    fin.close()
+    print(image)
+
+    
+def D(key):
+    
+    fin = open(path, 'rb')
+    image = fin.read()
+    fin.close()
+    image = bytearray(image)
+           
+    for index, values in enumerate(image):
+        image[index] = values ^ key
+            
+    fin = open(path, 'wb')
+    fin.write(image)
+    fin.close()
+    print(image)
+    
+
+print("For Encryption enter 1")
+print("For Decryption enter 2")
+print("For Exit enter 3")
+p = int(input("Enter the process number: "))
+while(p<3):
+    if(p==1):
+        path = input(r'Enter path of Image : ')
+        print('Note : Encryption key and Decryption key must be same.')
+        key1 = int(input('Enter Key1 for encryption of Image : '))
+        key2 = int(input('Enter Key2 for encryption of Image : '))
+        key3 = int(input('Enter Key3 for encryption of Image : '))
+
+        
+        E(key1)
+        D(key2)
+        E(key3)
+        
+        print('Encryption Done...')
+        print("\n")
+        print("For Encryption enter 1")
+        print("For Decryption enter 2")
+        print("For Exit enter 3")
+        p = int(input("Enter the process number: "))
+
+    elif(p==2):
+        path = input(r'Enter path of Image : ')
+        print('Note : Encryption key and Decryption key must be same.')
+        key1 = int(input('Enter Key for encryption of Image : '))
+        key2 = int(input('Enter Key for encryption of Image : '))
+        key3 = int(input('Enter Key for encryption of Image : '))
+
+        D(key3)
+        E(key2)
+        D(key1)
+            
+        print('Decryption Done...')
+        print("\n")
+        print("For Encryption enter 1")
+        print("For Decryption enter 2")
+        print("For Exit enter 3")
+        p = int(input("Enter the process number: "))
+print("thank you Have a good Day")
